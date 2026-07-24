@@ -1,4 +1,16 @@
 aid: bestmile
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bestmile.png
 name: Bestmile
 description: 'Bestmile is a company surfaced as a portfolio company of partech and added to the API Evangelist
   network as a stub for enrichment. Sector: Applicative SaaS. This profile is a lead awaiting the enrichment
@@ -12,7 +24,19 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+x-lifecycle-status: defunct
+x-enrichment:
+  last_run: '2026-07-18'
+  method: probed
+  result: no-surface
+  note: >-
+    Enrichment probe 2026-07-18 found no live provider surface. bestmile.com
+    resolves (Gandi A 217.70.184.38) but HTTPS/443 is refused; HTTP/80 returns a
+    Gandi "bestmile.com is unavailable" registrar parking page. No developer
+    portal, docs, OpenAPI, packages, or /.well-known responses. Bestmile (Swiss
+    autonomous-vehicle fleet-orchestration SaaS) is defunct. No artifacts
+    created; skip future enrichment unless the surface returns.
 tags:
 - Company
 - Applicative Saas
