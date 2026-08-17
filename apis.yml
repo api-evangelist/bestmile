@@ -12,9 +12,17 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bestmile.png
 name: Bestmile
-description: 'Bestmile is a company surfaced as a portfolio company of partech and added to the API Evangelist
-  network as a stub for enrichment. Sector: Applicative SaaS. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Bestmile was a Swiss fleet-orchestration SaaS company, spun out of EPFL in Lausanne in 2014, whose
+  cloud platform planned, dispatched and optimized mixed fleets of autonomous and human-driven
+  vehicles for on-demand mobility and transit operators. The platform was described by the company as
+  API-first, with documented Fleet, Booking and Transportation APIs for integrating operator booking
+  apps, fleet-management systems and traveler-information systems. The company no longer operates: ZF
+  Friedrichshafen acquired Bestmile's technology in November 2021 and folded it into its own SCALAR
+  fleet-orchestration platform, so any successor API belongs to ZF rather than to Bestmile. As of
+  2026-08-17 bestmile.com is a parked Gandi.net registrar domain that refuses HTTPS, and no
+  developer portal, documentation, OpenAPI, package or /.well-known surface survives. Surfaced
+  originally as a Partech portfolio company.
 url: https://raw.githubusercontent.com/api-evangelist/bestmile/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -24,22 +32,21 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-17'
 x-lifecycle-status: defunct
-x-enrichment:
-  last_run: '2026-07-18'
-  method: probed
-  result: no-surface
-  note: >-
-    Enrichment probe 2026-07-18 found no live provider surface. bestmile.com
-    resolves (Gandi A 217.70.184.38) but HTTPS/443 is refused; HTTP/80 returns a
-    Gandi "bestmile.com is unavailable" registrar parking page. No developer
-    portal, docs, OpenAPI, packages, or /.well-known responses. Bestmile (Swiss
-    autonomous-vehicle fleet-orchestration SaaS) is defunct. No artifacts
-    created; skip future enrichment unless the surface returns.
+x-lifecycle-note: >-
+  Technology acquired by ZF Friedrichshafen AG in November 2021
+  (https://press.zf.com/press/en/releases/release_32320.html, HTTP 200) and
+  relaunched as ZF SCALAR. Bestmile ships nothing of its own; the successor
+  surface is ZF's and is not credited here.
 tags:
 - Company
 - Applicative Saas
+- Mobility
+- Fleet Orchestration
+- Autonomous Vehicles
+- Transportation
+- Mobility As A Service
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -47,5 +54,35 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/bestmile-domain-security.yml
 - type: Website
   url: https://bestmile.com/
+- type: GitHubOrganization
+  url: https://github.com/Bestmile
+x-enrichment:
+  date: '2026-08-17'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    bestmile.com refuses HTTPS entirely and its HTTP/80 root serves a Gandi.net
+    registrar parking page; api., docs., developer., platform. and app.bestmile.com
+    are NXDOMAIN, and the surviving github.com/Bestmile org holds only forks of
+    third-party OSS (secor, alpakka, chimney, squants) with no spec or SDK, because
+    ZF Friedrichshafen absorbed the technology into SCALAR in November 2021.
+  evidence:
+  - url: https://bestmile.com/
+    status: 0
+  - url: http://bestmile.com/
+    status: 200
+  - url: http://bestmile.com/.well-known/agent-card.json
+    status: 200
+  - url: https://api.github.com/orgs/bestmile
+    status: 200
+  - url: https://pypi.org/pypi/bestmile/json
+    status: 404
+  checked: '2026-08-17'

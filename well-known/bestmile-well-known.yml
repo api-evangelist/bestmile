@@ -1,0 +1,76 @@
+generated: '2026-08-17'
+method: probed
+source: >-
+  Live probe of every /.well-known/ path on the only host Bestmile still has a
+  DNS record for (bestmile.com). HTTPS/443 is refused, so all probes ran over
+  HTTP/80.
+host: bestmile.com
+scheme: http
+note: >-
+  ZERO REAL HITS. Every path answered HTTP 200, but every response is the same
+  2,332-byte Gandi.net registrar parking page (Content-Type: text/html, byte-for
+  byte identical across all seven paths, differing only in the CSP script nonce)
+  — a catch-all soft-200, not a served document. No WellKnown, SecurityTxt,
+  OpenIDConfiguration, AgentCard or AIPlugin pointer is emitted, and none may be:
+  Bestmile serves none of these surfaces. bestmile.com is a parked domain at
+  Gandi (A 217.70.184.38, NS a/b/c.dns.gandi.net); api., docs., developer.,
+  platform. and app.bestmile.com do not resolve at all (NXDOMAIN). ZF
+  Friedrichshafen acquired Bestmile's technology in November 2021 and folded it
+  into its own SCALAR fleet-orchestration platform, so any successor API belongs
+  to ZF, not to Bestmile.
+paths:
+- path: /.well-known/security.txt
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: Gandi parking page HTML, not a security.txt
+- path: /.well-known/openid-configuration
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: Gandi parking page HTML, not an OIDC discovery document
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: Gandi parking page HTML, not an RFC 8414 metadata document
+- path: /.well-known/api-catalog
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: Gandi parking page HTML, not an RFC 9727 API catalog
+- path: /.well-known/ai-plugin.json
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: Gandi parking page HTML, not a plugin manifest
+- path: /.well-known/agent-card.json
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: >-
+    Gandi parking page HTML, NOT an A2A Agent Card. Body is not a JSON object and
+    carries none of name/url/version/protocolVersion/capabilities/skills. No
+    a2a/ artifact and no AgentCard pointer written.
+- path: /.well-known/agent.json
+  status: 200
+  content_type: text/html
+  bytes: 2332
+  real_document: false
+  file: null
+  note: >-
+    Legacy pre-0.3 agent card path. Same parking page HTML. Not an Agent Card.
+hits: 0
+soft_200s: 7
